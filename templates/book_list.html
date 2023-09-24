@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List</title>
+    <style>
+        body{
+            margin: 2px;
+            padding: 0px;
+            background-color: #000000;
+        }
+        .load{
+            margin: 0px;
+            padding: 0px;
+            height: 3.5px;
+            background-color: #000000;
+            animation: load_ani 0.8s;
+        }
+        @keyframes load_ani{
+            0%{
+                background-color: rgb(236, 13, 13);
+                width: 0%;
+            }
+            25%{
+                background-color: red;
+                width: 25%;
+            }
+            50%{
+                background-color: red;
+                width: 50%;
+            }
+            75%{
+                background-color: red;
+                width: 75%;
+            }
+            100%{
+                background-color: red;
+                width: 100%;
+            }
+        }
+        .container{
+            margin: 28px;
+            position: relative;
+            left: 6px;
+            top: -8px;
+            height: 303px;
+            width: 231px;
+            background-color: rgba(213, 218, 223, 0.881);
+            border-radius: 8px;
+        }
+        .container:hover{
+            transform: scale(1.1)
+        }
+        .container::after{
+            transition: all 1s;
+            animation: trean_effe 1.5s linear infinite;
+            filter: blur(14px);
+            z-index: -1;
+            position: absolute;
+            top: -3px;
+            left: -3.6px;
+            content: "";
+            height: 308px;
+            width: 238px;
+            border-radius: 10px;
+            background: linear-gradient(red,green,yellow);
+        }
+        @keyframes trean_effe{
+            0%{
+                filter: hue-rotate(0deg);
+            }
+            100%{
+                filter: hue-rotate(360deg);
+            }
+
+
+        }
+        #book_img1{
+            border-radius: 8px;
+            position: relative;
+            height: 220px;
+            width: 228px;
+            top: 1px;
+            left: 1px;
+
+        }
+        .info{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: inherit;
+            font-size: 20px;
+            position: relative;
+            left: 6px;
+        }
+        .dipla_flex{
+            display: flex;
+        }
+        #book_name{
+            position: relative;
+            top: 2px;
+        }
+        #book_author{
+            position: relative;
+            top: -14px;
+
+        }
+        #book_price{
+            position: relative;
+            top: -34px;
+
+        }
+        .hrtag{
+            position: relative;
+            top: 0px;
+            height: 1px;
+            background: linear-gradient(red,green,yellow,white);
+            transition: all 1s;
+            animation: trean_effe 1.5s linear infinite;
+            filter: blur(14px);
+
+        }
+        .total1{
+            position: relative;
+            left: 32px;
+            color: rgba(255, 255, 255, 0.94);
+        }
+        .total{
+            text-shadow: 2px 1px 3px #17eef2;
+            font-size:29px;
+        }
+        .close{
+            position: absolute;
+            left: 1362px;
+            top: 24px;
+            
+        }
+        .close:hover{
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+        button{
+            height: 41px;
+            width: 69px;
+            font-size: 25px;
+            border-radius: 10px;
+            border-width: 1px;
+            border-color: rgba(255, 0, 153, 0.782);
+        }
+        button:hover{
+            border-width: 0.1px;
+            background-color: rgba(225, 122, 209, 0.941);
+            box-shadow: 1px 1px 8px 4px rgba(255, 0, 191, 0.967);
+            cursor: pointer;
+            
+        }
+        .close:active{
+            transform: scale(0.9);
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="load"></div>
+    <div class="total1">
+        <h1 class="total" >No. of Books Available :{{(name|length)}}</h1>
+    </div>
+    <div class="close">
+        <a href="{{url_for('home_page')}}"><button>close</button></a>
+    </div>
+    <div class="dipla_flex">
+        <table>
+            {% for i in range(name|length) %}
+            <tr>
+                {% for j in range(nu) %}
+                <td>
+                    <div class="container">
+                        <div class="card">
+                            <div class="book">
+                                <div id="book_img">
+                                    <a href="#"><img id="book_img1" src="{{image[j+i]}}"></a>
+                                </div>
+                                <div class="info">
+                                    <div id="book_name">
+                                        <span>name: {{name[j+i]}}</span>
+                                    </div><br>
+                                    <div id="book_author">
+                                        <span>author: {{author[j+i]}}</span>
+                                    </div><br>
+                                    <div id="book_price">
+                                        <span>price: 400k</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="hrtag">
+                </td>
+                {% endfor %} 
+            </tr>           
+            {% endfor %} 
+        </table>
+    </div>
+</body>
+</html>
+
+

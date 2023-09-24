@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>about</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+        #about_page{
+            background-color: rgba(0, 0, 0, 0.673);
+            height: 400px;
+            width: 550px;
+            position: absolute;
+            left: 444px;
+            top: 88px;
+            border-radius: 10px;
+            box-shadow: -2px 2px 10px 0px rgba(0, 0, 0, 0.512);
+
+        }
+        .about_conta{
+            box-shadow: 1px 12px 10px 0px rgb(0, 0, 0);
+            border-radius: 4px;
+            position: relative;
+            left: 50px;
+            top: -16px;
+            height: 360px;
+            width: 560px;
+            background-color: #0ddfdc;
+
+
+        }
+        .heading{
+            color: blue;
+            font-size: 26px;
+            position: relative;
+            top: 4px;
+            left: 235px;
+            position: relative;
+            background: linear-gradient(to right, rgba(89, 236, 73, 0.534) 0%, rgb(251, 249, 250) 20%, rgba(235, 178, 72, 0.43) 61%), linear-gradient(rgba(227, 152, 60, 0.795) 52%, rgb(248, 249, 247) 60%, rgba(78, 241, 53, 0.9) 61%); 
+            background-clip: text; 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            animation: wave 1099ms ease alternate infinite;
+            transition: all 0.2s ease;
+        }
+        @keyframes wave {
+            0% {
+              background-position: 1 1;
+            }
+            100% {
+              background-position: 50vw 10px;
+            }
+        }
+        .text{
+            position: relative;
+            left: 25px;
+            top: 40px;
+
+        }
+        .p{
+            font-size: 16px;
+            
+        }
+        .load{
+            height: 3px;
+            background-color: rgb(255, 255, 255);
+            animation: loadani 1000ms ease-in-out;
+        }
+        @keyframes loadani{
+            0%{
+                width: 0%;
+                background-color: red;
+            }
+            25%{
+                width: 25%;
+                background-color: red;
+            }
+            50%{
+                width: 50%;
+                background-color: red;
+            }
+            75%{
+                width: 75%;
+                background-color: red;
+            }
+            100%{
+                width: 100%;
+                background-color: red;
+            }
+        }
+        #about_page:hover{
+            transform: scale(1.1);
+        }
+        .heading:hover{
+            cursor: pointer;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="load"></div>
+
+    <div id="about_page">
+        
+        <div class="about_conta">
+            <div class="heading"><h2><a href="{{url_for('home_page')}}">About</a></h2></div>
+            <div class="text">
+                <h3>Welcome to "Discover Your Next Read:</h3>
+                <p class="p"> A Comprehensive Guide to Book Recommendation Systems." In this book,</p>
+                <p class="p"> we will explore the fascinating world of book recommendation systems and </p>
+                <p class="p"> how they play a crucial role in helping readers find their next literary adventure.</p>
+                <p class="p"> Whether you're a bookworm, a casual reader, or someone seeking to enhance the </p>
+                <p class="p"> book discovery experience on your website, this guide is for you.</p>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

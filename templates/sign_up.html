@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+            background-color: rgba(236, 232, 232, 0.995);
+        }
+        .container{
+            transform: scale(1.3);
+            box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.174);
+            background-color: white;
+            height: 390px;
+            width: 300px;
+            position: absolute;
+            top: 20vh;
+            left: 43%;
+            border-radius: 10px;
+            transition:  0.2s ease-in 0.3s;
+            
+        }
+        .container:hover{
+            transform: scale(1.2);
+
+        }
+        .lab1{
+            font-size: 26px;
+            position: relative;
+            left: 89px;
+            top: 18px;
+        }
+        label{
+            margin: 4px;
+            position: relative;
+            top: 40px;
+            left: 40px;
+        }
+        input{
+            border-radius: 4px;
+            height: 25px;
+            width: 214px;
+            margin: 4px;
+            position: relative;
+            top: 40px;
+            left: 40px;
+
+        }
+        button{
+            border:none;
+            font-size: 20px;
+            color: rgb(0, 0, 0);
+            background-color: rgba(40, 40, 246, 0.89);
+            width: 220px;
+            margin: 6px;
+            height: 35px;
+            border-radius: 4px;
+            position: relative;
+            top: 43px;
+            left: 39px;
+        }
+        button:hover{
+            cursor: pointer;
+        }
+        .lab7{
+            position: relative;
+            top: 80px;
+            left: 80px;
+            font-size: 14px;
+        }
+        a{
+            font-size: 13px;
+        }
+        .load{
+            height:2px;
+            animation: aniload 0.5s ease 0.3s;
+        }
+        @keyframes aniload{
+            0%{
+                width:0%;
+                background-color:black;
+            }
+            25%{
+                width:25%;
+                background-color:black;
+            }
+            50%{
+                width:50%;
+                background-color:black;
+            }
+            75%{
+                width:75%;
+                background-color:black;
+            }
+            100%{
+                width:100%;
+                background-color:black;
+            }
+        }
+        .lab1{
+            position: relative;
+            left: 36px;
+            top: 26px;
+        }
+        .line1{
+            height: 1px;
+            width: 110px;
+            background-color: black;
+            position: relative;
+            top: 60px;
+            left: 28px;
+        }
+
+        .line2{
+            height: 1px;
+            width: 110px;
+            background-color: black;
+            position: relative;
+            top: -0px;
+            left: 140px;
+        }
+
+        .line3{
+            height: 1px;
+            width: 100px;
+            position: relative;
+            top: -10px;
+            left: -22px;
+        }
+        .imgico{
+            display: flex;
+        }
+        img{
+            position: relative;
+            top: 76px;
+            left: 40px;
+            padding-left: 37px;
+            height: 22px;
+            width: 22px;
+        }
+        #google{
+            width: 30px;
+            height: 24px;
+        }
+        .fac{
+            height:28px;
+            width:27px;
+            position:relative;
+            top:73px;
+        }
+        .submit-but:active{
+            transform: scale(0.9);
+        }
+        #google:active{
+            transform: scale(0.9);
+        }
+        .linkd:active{
+            transform: scale(0.9);
+        }
+        .fac:active{
+            transform: scale(0.9);
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <div class="load"></div>
+    <div class="container">
+        <div id="log">
+            <form action='/signup_process' method="post">
+                <label class="lab1">Sing Up</label>
+                <div>
+                    <label class="lab2">Email</label><br>
+                    <input type="email" name="email"  required="required">
+                </div>
+                <div>
+                    <label class="lab4">Password</label><br>
+                    <input type="password" name="password1"  required="required">
+                </div>
+
+                <div>
+                    <label class="lab4">Confirm password</label><br>
+                    <input type="password" name="password2"  required="required">
+                </div>
+                <div>
+                    <button class="submit-but" type="submit">SIGN UP</button>
+                </div>
+                <div class="line1">
+                    <div class="line2">
+                        <span class="line3">or</span>
+                    </div>
+                </div>
+                <div class="imgico">
+                    <a href="#"><img id="google" src="{{url_for('static',filename='G_logo.png')}}"></a>
+                    <a href="#"><img class="linkd" src="{{url_for('static',filename='linkdin.png')}}"></a>
+                    <a href="#"><img class="fac" src="{{url_for('static',filename='facebook.png')}}"></a>
+                </div>
+                <div>
+                    <label class="lab7">Already a user? <a href="{{url_for('login')}}">Login</a></label>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
